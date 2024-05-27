@@ -27,7 +27,9 @@ export default function HelperHeader() {
           Language:
         <Select 
         defaultValue={currentLanguage}
-        onValueChange={(value)=>dispatch(updateCurrentLanguage(value as CompilerSliceStateType["currentLanguage"]))}>
+        onValueChange={(value)=>
+        dispatch(
+          updateCurrentLanguage(value as CompilerSliceStateType["currentLanguage"]))}>
           <SelectTrigger className="w-[180px] bg-gray-800 outline-none focus:ring-0">
             <SelectValue placeholder="Theme" />
           </SelectTrigger>
