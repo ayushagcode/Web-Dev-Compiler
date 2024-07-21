@@ -1,0 +1,14 @@
+mkdir server
+cd server
+tsc --init
+npm init -y
+   
+    do changes in tsconfig
+    rootdir:./src
+    outdir:./dist
+    target: "ES2020"
+now make folder src
+now file index.ts in src
+cd..(in server folder)
+npm i express
+npm i @types/express (now hum typescript use kar rhe hai to hume types wali library install karni padti hai express ki jagah)

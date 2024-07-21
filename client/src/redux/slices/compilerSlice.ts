@@ -32,8 +32,114 @@ const initialState: CompilerSliceStateType = {
 </body>
 </html>
 `,
-        css: "this is CSS code",
-        javascript: "this is JS code",
+        css: `
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#todo-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#add-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+#add-button:hover {
+    background-color: #0056b3;
+}
+
+#todo-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.todo-item button {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.todo-item button:hover {
+    background-color: darkred;
+}
+        
+        `,
+        javascript: `
+document.getElementById('add-button').addEventListener('click', function() {
+    const todoInput = document.getElementById('todo-input');
+    const todoText = todoInput.value.trim();
+
+    if (todoText !== '') {
+        const todoList = document.getElementById('todo-list');
+
+        const listItem = document.createElement('li');
+        listItem.className = 'todo-item';
+
+        const itemText = document.createElement('span');
+        itemText.textContent = todoText;
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.addEventListener('click', function() {
+            todoList.removeChild(listItem);
+        });
+
+        listItem.appendChild(itemText);
+        listItem.appendChild(deleteButton);
+
+        todoList.appendChild(listItem);
+        todoInput.value = '';
+    }
+});
+        `,
     },
     currentLanguage: "html",
 };

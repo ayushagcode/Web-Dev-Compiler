@@ -20,13 +20,13 @@ const fullCode = useSelector(
     const onChange = React.useCallback((value: string) => {
         // console.log("val:", typeofval);
         // setValue(val);
-        dispatch(updateCodeValue(value));
+        dispatch(updateCodeValue (value));
     }, []);
 
     return (
     <CodeMirror 
     value={fullCode[currentLanguage]} 
-    height="calc(100vh- 60px- 50px)" 
+    height="100vh" 
     className="code-editor"
     extensions={[loadLanguage(currentLanguage)!]} // ! tells that value cant be empty
     onChange={onChange}
